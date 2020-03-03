@@ -1,3 +1,5 @@
+;自訂快速鍵代替滑鼠按下固定位置
+;特別適合將廣告關閉
 #SingleInstance force ;禁止多開
 CoordMode, Mouse, Screen ;滑鼠位置採用全螢幕座標
 
