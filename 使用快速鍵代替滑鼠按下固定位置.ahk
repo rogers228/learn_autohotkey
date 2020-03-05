@@ -32,7 +32,6 @@ doit: ;滑鼠按一下固定位置
 	gy = %T2%
 	MouseGetPos, cx, cy ;記住滑鼠現在位置
 	MouseClick, left, gx, gy, ,2 ;按下滑鼠左鍵 速度2
-	;MouseMove, gx, gy, 10 ;滑鼠回去原來位置 速度2
 	MouseMove, cx, cy, 2 ;滑鼠回去原來位置 速度2
 	Gui, 1:Minimize
 	If Opt1 = 1 ;
