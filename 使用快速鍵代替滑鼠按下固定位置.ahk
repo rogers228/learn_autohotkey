@@ -34,11 +34,8 @@ doit: ;滑鼠按一下固定位置
 	MouseClick, left, gx, gy, ,2 ;按下滑鼠左鍵 速度2
 	MouseMove, cx, cy, 2 ;滑鼠回去原來位置 速度2
 	;Gui, 1:Minimize
-	If Opt1 = 1 ;
+	If Opt1 = 1
 		Gui, 1:Show ;視窗always on top
-	else
-		;Gui, 1:Minimize ;最小化在工具列
-		Gui, 1:Hide; 隱藏僅在系統列
 	Return
 
 Select:
