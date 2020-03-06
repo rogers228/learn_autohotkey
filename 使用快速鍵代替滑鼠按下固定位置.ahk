@@ -15,7 +15,7 @@ Gui, 1:Add, Edit, r1 x220 y7  vT1, 9999 ;x
 Gui, 1:Add, Edit, r1 x255 y7  vT2, 9999 ;y
 Gui, 1:Add, Text,x287 y10,(Ctrl+M Set Pos)
 Gui, 1:Add, Checkbox, x375 y10 vOpt1, OnTop ;視窗always on top
-Gui, 1:Show, x600 y0 w450 ,Press Key to Close Ads
+Gui, 1:Show, x600 y0 w450, Press Key to Close Ads
 
 x1 = 819 ;預設值
 y1 = 467 ;預設值
@@ -33,9 +33,12 @@ doit: ;滑鼠按一下固定位置
 	MouseGetPos, cx, cy ;記住滑鼠現在位置
 	MouseClick, left, gx, gy, ,2 ;按下滑鼠左鍵 速度2
 	MouseMove, cx, cy, 2 ;滑鼠回去原來位置 速度2
-	Gui, 1:Minimize
+	;Gui, 1:Minimize
 	If Opt1 = 1 ;
 		Gui, 1:Show ;視窗always on top
+	else
+		;Gui, 1:Minimize ;最小化在工具列
+		Gui, 1:Hide; 隱藏僅在系統列
 	Return
 
 Select:
@@ -53,5 +56,7 @@ Select:
 	Return
 	
 ESC:: ;強制關閉
-	ExitApp
+	MsgBox ,292, Esc, Would you want to quit?
+	IfMsgBox Yes
+    		ExitApp
 	Return
