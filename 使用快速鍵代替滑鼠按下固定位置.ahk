@@ -17,8 +17,8 @@ Gui, 1:Add, Text,x287 y10,(Ctrl+M Set Pos)
 Gui, 1:Add, Checkbox, x375 y10 vOpt1, OnTop ;視窗always on top
 Gui, 1:Show, x600 y0 w450, Press Key to Close Ads
 
-x1 = 819 ;預設值
-y1 = 467 ;預設值
+x1 = 1164 ;預設值
+y1 = 716 ;預設值
 old_k := "^Backspace" ;預設值
 GuiControl,, T1, %x1%
 GuiControl,, T2, %y1%
