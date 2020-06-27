@@ -20,7 +20,7 @@ Myloop:
             Break
         }
         ;MsgBox, Iteration number is %A_Index%.
-        ;此處可以加上監控，Run 其他程序
+        ;此處可以加上監控，Run test.py 其他程序
         Sleep, %MyTimer% ;Timer
     }
 
