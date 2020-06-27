@@ -1,6 +1,8 @@
+;ahk後台監控
 ;使用Loop+Sleep做成Timer的效果
 ;搭配Gui CheckBox 可讓使用者控制開關
-;可做成後台的監控中心
+;可做成後台的監控程序，簡單易用，也可以執行其他語言，例如python腳本做更複雜的事情
+;ahk完全可以勝任簡易Gui及取代簡易windows排程
 
 #SingleInstance force ;禁止多開
 
@@ -18,7 +20,7 @@ Myloop:
             Break
         }
         ;MsgBox, Iteration number is %A_Index%.
-        ;此處可以加上監控
+        ;此處可以加上監控，Run 其他程序
         Sleep, %MyTimer% ;Timer
     }
 
