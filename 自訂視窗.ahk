@@ -15,13 +15,16 @@ Menu, Tray, Add, Show Window, MyShow ;增加顯示視窗功能
 Menu, tray, add, Exit, MyFormGuiClose ;增加離開功能
 Menu, Tray, Default, Show Window ;設定選單預設值，滑鼠點兩下圖示即可觸發
 
-;變更圖
+;變更圖示
 IconFile = h.ico ;圖示路徑
 IfNotExist, %IconFile%
     Return
 IfExist, %IconFile%
     ChangeWindowIcon(IconFile, MyForm) ;變更視窗圖示
     Menu, Tray, Icon, %IconFile% ;變更系統列圖示
+
+;插入主要腳本...
+
 Return
 
 MyHide: ;隱藏視窗
@@ -54,6 +57,3 @@ ChangeWindowIcon(IconFile, hWnd) { ;變更圖示
     SendMessage, WM_SETICON:=0x80, ICON_BIG:=1   , hIcon,, ahk_id %hWnd% ; Set the window's big icon to the same one.
     Return
 }
-
-
-
