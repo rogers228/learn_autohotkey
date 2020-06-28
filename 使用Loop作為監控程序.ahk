@@ -10,7 +10,6 @@ MyTimer = 2000 ;毫秒為單位
 Gui, Add, CheckBox, y20 vMyCheckbox gMyloop Checked, Enable Timer to listen
 Gui, Show, w360 h45 Center ,Listen
 
-
 Myloop:
     Loop
     {
@@ -19,10 +18,11 @@ Myloop:
         {
             Break
         }
-        ;MsgBox, Iteration number is %A_Index%.
+        MsgBox, Iteration number is %A_Index%.
         ;此處可以加上監控，Run test.py 其他程序
         Sleep, %MyTimer% ;Timer
     }
+    Return
 
 GuiClose: ;使用GuiClose關閉按鈕
 	MsgBox ,292, Esc, Would you want to quit?
