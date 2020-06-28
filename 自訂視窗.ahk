@@ -7,8 +7,9 @@
 
 Gui, MyForm: New, +HwndMyForm
 Gui, MyForm: Add, Text,x10 y10, Hello Icon!
-Gui, MyForm: Add, Button, x220 y10 w120 gMyHide, Minimize to System
-Gui, MyForm: Show, w360 h45 Center ,Listen
+Gui, MyForm: Add, Button, x220 y10 w120 gMyHide, Minimize to System ;最小化至系統列
+Gui, MyForm: Add, StatusBar, , %A_ScriptFullPath% ;狀態列顯示完整路徑
+Gui, MyForm: Show, w360 h120 Center ,Listen ;自訂標題
 Menu, Tray, NoStandard ;移除標準功能
 Menu, tray, add, Reload This Script, ReloadThisScript ;增加重啟功能
 Menu, Tray, Add, Show Window, MyShow ;增加顯示視窗功能
@@ -32,8 +33,8 @@ MyHide: ;隱藏視窗
     Return
 
 MyShow: ;顯示視窗
-	WinShow, ahk_id %MyForm%
-	WinActivate, ahk_id %MyForm%
+    WinShow, ahk_id %MyForm%
+    WinActivate, ahk_id %MyForm%
     Return
 
 MyFormGuiClose: ;關閉
