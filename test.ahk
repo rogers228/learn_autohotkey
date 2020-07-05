@@ -1,7 +1,11 @@
 ﻿#singleinstance force
-
-MyWaitTime := 5000 ;等待時間(毫秒)
-
+;固定參數
+    NeedID = 25 ;文字  請求ID
+    S_WaitTime := 5000 ;等待時間(毫秒)
+    F_request = C:\tmp\request ;請求位置
+    F_respond = C:\tmp\respond ;回應位置
+    S_symbol = ____ ;分隔符號 4個底線
+    
 ;Gui
     Gui, MyForm: New, +HwndMyForm
     Gui, MyForm: Add, Text, , Please select a file:
@@ -13,27 +17,26 @@ MyWaitTime := 5000 ;等待時間(毫秒)
     Gui, MyForm: Show, w460 h160 Center ,Listen ;自訂標題
     Return
 
-
 MySendRequest: ;發送請求
-    RequestFileName := A_ComputerName . "__;__" . A_Now
+    RequestFileName := F_request . "\" . A_ComputerName . S_symbol . A_Now . S_symbol . NeedID . ".txt"
+    GuiControlGet, MyFileText
+    FileAppend, %MyFileText%, %RequestFileName% ;建立txt請求
+
     GuiControl, Disable, MyBtn ;停用按鈕避免重複按多次
-    SetTimer, MyTimer1, %MyWaitTime% ;等待時間(毫秒)
+    SetTimer, MyTimer1, %S_WaitTime% ;等待時間(毫秒)
     SetTimer, MyTimer2, 1000 ;監控回應時間間隔(毫秒)
     Return
 
-MyTimer1: ;等待時間
-    ;發送請求
-    ;
-    ;
+MyTimer1: ;超過等待時間
     SetTimer, MyTimer1, Off
     SetTimer, MyTimer2, Off
     ToolTip, ;偵錯用
-    MsgBox, 48, ,程式超時未回應，請洽系統管理員!
+    MsgBox, 48, ,程式超時未回應，請洽系統管理員`n`n%RequestFileName%
     GuiControl, MyForm: Enable, MyBtn ;重新啟用按鈕
     Return
 
 MyTimer2:
-    ;讀取回應後關閉
+    ;讀取回應
 
     ToolTip, % A_Now  ;偵錯用
     Return
@@ -50,9 +53,3 @@ MyFormGuiClose: ;關閉
 	MsgBox ,292 , Esc, Would you want to quit?
 	IfMsgBox Yes
     		ExitApp
-
-; DateDiff(starT, endT, timeUnits)
-; {
-;     EnvSub, endT, starT, % timeUnits
-;     Return endT
-; }
