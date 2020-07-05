@@ -5,7 +5,7 @@
     F_request = C:\tmp\request ;請求位置
     F_respond = C:\tmp\respond ;回應位置
     S_symbol = ____ ;分隔符號 4個底線
-    
+
 ;Gui
     Gui, MyForm: New, +HwndMyForm
     Gui, MyForm: Add, Text, , Please select a file:
@@ -21,8 +21,8 @@ MySendRequest: ;發送請求
     RequestFileName := F_request . "\" . A_ComputerName . S_symbol . A_Now . S_symbol . NeedID . ".txt"
     GuiControlGet, MyFileText
     FileAppend, %MyFileText%, %RequestFileName% ;建立txt請求
-
-    GuiControl, Disable, MyBtn ;停用按鈕避免重複按多次
+    ;建立請求結束
+    GuiControl, Disable, MyBtn ;停用按鈕避免重複請求
     SetTimer, MyTimer1, %S_WaitTime% ;等待時間(毫秒)
     SetTimer, MyTimer2, 1000 ;監控回應時間間隔(毫秒)
     Return
@@ -44,7 +44,6 @@ MyTimer2:
 MySelectFile: ;選擇檔案
     FileSelectFile, SelectedFile, 1, , Open a file, Text Documents (*.txt; *.doc)
     if (Not SelectedFile = "")
-        ;MsgBox, The user selected the following:`n%SelectedFile%s
         GuiControl, , MyFileText, %SelectedFile%
         GuiControl, Enable, MyBtn 
     Return
