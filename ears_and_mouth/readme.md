@@ -1,4 +1,3 @@
-# client server communication
 # 工作站與後台(伺服器)通訊
 
 區域網路內工作站對伺服器發出製表excel請求，伺服器處理完成後開啟excel。
