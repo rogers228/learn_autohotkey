@@ -194,8 +194,8 @@ class SocketTCP extends Socket
 }
 
 ; client
-; argv_1 = %1%
+argv_1 = %1%
 client := new SocketTCP()
 client.connect("220.168.100.186", 8066)
-client.sendText("hello allen!")
+client.sendText(argv_1)
 ExitApp
