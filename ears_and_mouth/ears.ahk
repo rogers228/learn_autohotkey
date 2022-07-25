@@ -212,4 +212,3 @@ OnAccept(){
   MsgBox, ears onaccept %sa%
   return
 }
-

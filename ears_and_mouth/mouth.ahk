@@ -199,3 +199,7 @@ client := new SocketTCP()
 client.connect("220.168.100.186", 8066)
 client.sendText(argv_1)
 ExitApp
+
+; 編譯封裝為mouth.exe 各工作站可使用
+; 引數固定為一個，由底線_分隔 轉drive解析
+; host, port 固定寫死
