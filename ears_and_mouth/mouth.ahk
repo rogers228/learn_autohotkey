@@ -201,5 +201,7 @@ client.sendText(argv_1)
 ExitApp
 
 ; 編譯封裝為mouth.exe 各工作站可使用
-; 引數固定為一個，由底線_分隔 轉drive解析
+; 引數
+;   引數1.處理方式及子引數 由drive定義  由底線_分隔 轉drive解析
+;   引數2.請求ip
 ; host, port 固定寫死

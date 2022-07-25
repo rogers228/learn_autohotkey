@@ -198,7 +198,7 @@ Server := new SocketTCP()
 Server.onAccept := Func("OnAccept")
 Server.bind(A_IPAddress1, 8066)
 Server.listen()
-SetTimer, MyTimeout, -5000
+SetTimer, MyTimeout, -5000 ; 毫秒 負數代表僅執行一次
 
 MyTimeout(){
     ; Msgbox, Time is over
@@ -212,3 +212,7 @@ OnAccept(){
   MsgBox, ears onaccept %sa%
   return
 }
+
+;開啟時效性耳朵，等待服務器通知
+;收到通知後，執行對應動作
+;未收到通知，過時即關閉，避免線程消耗記憶體
