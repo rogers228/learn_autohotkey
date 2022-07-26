@@ -21,8 +21,17 @@ Client/Server架構優點
 檔案說明
 |  檔案   | 說明  | 負責
 |  ----   | ----  | ----  |
-| center  | app server | 1.接收請求<br>2.Gui介面供查看
+| report gui | client gui | 1.報表Gui對話框<br>2.開啟耳朵<br>3.發送請求<br>4.獨立開發
+| center gui | server | 1.接收請求<br>2.Gui介面供查看
 | ears    | 耳朵 | 等待回應
-| mouth   | 嘴巴 | 發起通訊
-| drive   | 驅動分配 | 1.解析引數<br>2.串接腳本
-| python script  | 各執行腳本 | 主要腳本分離, 維持小巧獨立開發
+| mouth   | 嘴巴 | 發送通訊
+| drive   | 驅動分配 | 1.解析引數<br>2.串接呼叫py腳本
+| python script  | 各執行腳本 | 1.發送回應<br>2.獨立開發
+
+通訊exe說明
+|  檔案   | 接收 | 送出
+|  ----   | ----  | ----  |
+| center  | 3引數 | 送出drive
+| ears    | 1引數 | 無
+| mouth   | 1引數 | 送出 center 3引數
+| mouth   | 無    | 送出 ears 3引數
