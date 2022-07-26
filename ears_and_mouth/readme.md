@@ -19,10 +19,10 @@ Client/Server架構優點
 7. b子線程ears收到後開啟報表,結束。
 
 檔案說明
-|  檔案   | 說明  |
-|  ----  | ----  |
-| center  | app server gui |
-| ears  | 耳朵 |
-| mouth  | 嘴巴 |
-| drive  | 驅動分配 |
-| python script  | 執行腳本 |
+|  檔案   | 說明  | 負責
+|  ----  | ----  | ----  |
+| center  | app server | 1.接收請求/n2.Gui介面供查看
+| ears  | 耳朵 | 等待回應
+| mouth  | 嘴巴 | 發起通訊
+| drive  | 驅動分配 | 1.解析引數/n2.串接腳本
+| python script  | 執行腳本 | 主要腳本分離, 維持小巧，獨立開發
