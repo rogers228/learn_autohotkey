@@ -21,7 +21,7 @@ Client/Server架構優點
 檔案說明
 |  檔案   | 說明  | 負責
 |  ----  | ----  | ----  |
-| center  | app server | 1.接收請求/n2.Gui介面供查看
+| center  | app server | 1.接收請求<br>2.Gui介面供查看
 | ears  | 耳朵 | 等待回應
 | mouth  | 嘴巴 | 發起通訊
 | drive  | 驅動分配 | 1.解析引數/n2.串接腳本
