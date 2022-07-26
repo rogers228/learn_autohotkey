@@ -17,3 +17,12 @@ Client/Server架構優點
 5. drive負責解析引數，轉相對應的python script處理製表
 6. python script製表完成後，使用mouth通知工作站b子線程ears
 7. b子線程ears收到後開啟報表,結束。
+
+檔案說明
+|  檔案   | 說明  |
+|  ----  | ----  |
+| center  | app server gui |
+| ears  | 耳朵 |
+| mouth  | 嘴巴 |
+| drive  | 驅動分配 |
+| python script  | 執行腳本 |
