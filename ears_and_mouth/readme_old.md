@@ -18,10 +18,20 @@ Client/Server架構優點
 6. python script製表完成後，使用mouth通知工作站b子線程ears
 7. b子線程ears收到後開啟報表,結束。
 
-資料夾架構
-|  名稱   | 說明
-|  ----   | ----  
-| server  | 1.center_gui<br>2.drive
-| client  | 1.report_gui<br>
-| communication | 1.ears.exe<br>2.mouth.exe
-| python script | 分離獨立
+檔案說明
+|  檔案   | 說明  | 負責
+|  ----   | ----  | ----  |
+| report gui | client gui | 1.報表Gui對話框<br>2.開啟耳朵<br>3.發送請求<br>4.獨立開發
+| center gui | server | 1.接收請求<br>2.Gui介面供查看
+| ears    | 耳朵 | 等待回應
+| mouth   | 嘴巴 | 發送通訊
+| drive   | 驅動分配 | 1.解析引數<br>2.串接呼叫py腳本
+| python script  | 各執行腳本 | 1.發送回應<br>2.獨立開發
+
+通訊exe說明
+|  檔案   | 接收 | 送出
+|  ----   | ----  | ----  |
+| center  | 3引數 | 送出drive
+| ears    | 1引數 | 無
+| mouth   | 1引數 | 送出 center 3引數
+| mouth   | 無    | 送出 ears 3引數
