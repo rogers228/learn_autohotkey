@@ -7,7 +7,7 @@ Client/Server架構
 2. 工作站不需安裝python
 3. 所有人報表一致，沒有版本問題
 4. 使用socket進行通訊封裝為exe，各工作站皆可重用
-5. gui socket使用vb6, autohoteky編程，製表使用python, pandas, openpyxl
+5. report_gui使用c#, autohoteky編程，製表使用python, pandas, openpyxl
 6. python script分離可同時開發；獨立線程，崩潰時不影響主線程，更新時不必重啟
 7. excel放於nas共用資料夾，自動清理
 
